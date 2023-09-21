@@ -1,11 +1,15 @@
-
 import { BiChevronRight } from 'react-icons/bi'
 
 import '../styles/BalanceCard.css'
 
-const BalanceCard = () => {
+
+interface TransactionProps {
+    setTransaction: (transaction: any) => void;
+}
+
+const BalanceCard: React.FC<TransactionProps> = ({ setTransaction }) => {
 	return (
-		<div className='main'>
+		<div className='main' >
 			<div className="balance-card-container">
 				<div className='card-header'>
 					<h2>PayTrack</h2>
@@ -16,11 +20,10 @@ const BalanceCard = () => {
 					<h1>EUR</h1>
 				</div>
 				<p>Available</p>
-				<button><BiChevronRight/></button>
+				<button onClick={() => setTransaction(true)}><BiChevronRight /></button>
 			</div>
-
 		</div>
-	)
-}
+	);
+};
 
-export default BalanceCard
+export default BalanceCard;

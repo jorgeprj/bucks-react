@@ -1,12 +1,11 @@
-import BalanceCard from "./components/BalanceCard"
 import Sidebar from "./components/Sidebar"
+import Home from "./pages/Home";
 
 function App() {
-
 	return (
 		<div>
-			<BalanceCard/>
 			<Sidebar/>
+			<Home/>
 		</div>
 	)
 }
