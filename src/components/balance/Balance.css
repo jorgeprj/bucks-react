@@ -1,0 +1,33 @@
+.balance{
+    margin-top: 1em;
+}
+
+.balance h1{
+    font-size: 2.5em;
+    font-weight: 400;
+}
+
+.balance span{
+    color: var(--text-medium);
+}
+
+.balance .balance-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--text-medium);
+    margin-top: 0.5em;
+}
+
+.balance .balance-text h4{
+    font-weight: 500;
+}
+
+.balance .balance-text svg{
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.balance .balance-text svg:hover{
+    color: var(--text-high);
+}
