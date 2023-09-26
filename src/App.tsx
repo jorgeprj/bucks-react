@@ -1,9 +1,14 @@
+import { BrowserRouter as Router } from "react-router-dom"
+import AppRoutes from "./routes"
+import Navbar from "./components/navbar/Navbar"
+
 function App() {
 
 	return (
-		<div>
-			<h1>Bucks</h1>
-		</div>
+		<Router>
+			<Navbar/>
+			<AppRoutes/>
+		</Router>
 	)
 }
 export default App

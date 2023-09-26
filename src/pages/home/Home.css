@@ -1,0 +1,40 @@
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.home-content{
+    width: 60%;
+}
+
+.home-content h1{
+    font-weight: 700;
+    font-size: 1.75em;
+}
+
+.home-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-header button{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    color: var(--text-medium);
+    background-color: var(--primary-color);
+    font-size: 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+
+.home-header button:hover{
+    box-shadow: none;
+    color: var(--text-low);
+}
