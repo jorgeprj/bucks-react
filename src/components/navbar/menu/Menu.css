@@ -1,0 +1,29 @@
+.menu{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    align-items: center;
+    text-align: center;
+}
+
+.menu .menu-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-right: 2em;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu .menu-item svg{
+    margin-right: 1em;
+}
+
+.menu .menu-item:hover{
+    color: var(--primary-color);
+}
+
+.menu .menu-item.active{
+    color: var(--primary-color);
+}
