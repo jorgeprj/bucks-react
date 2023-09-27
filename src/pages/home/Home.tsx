@@ -1,10 +1,11 @@
 import Balance from '../../components/balance/Balance';
+import TransactionCard from '../../components/transaction-card/TransactionCard';
 import './Home.css'
 
 import { useState } from "react"
 
 const Home = () => {
-	const [balance, setBalance] = useState(107.32);
+	const [balance, setBalance] = useState(1056.32);
 
 	return (
 		<div className="home">
@@ -14,7 +15,9 @@ const Home = () => {
 					<button>+</button>
 				</div>
 				<Balance balance={balance}/>
-
+				<div className='transactions-cards'>
+					<TransactionCard value={32.17}/>
+				</div>
 			</div>
 		</div>
 	)

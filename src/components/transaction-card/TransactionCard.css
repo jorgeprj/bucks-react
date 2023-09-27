@@ -1,0 +1,27 @@
+.transaction-card{
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 1em;
+}
+
+.transaction-card h4{
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.transaction-card svg{
+    font-size: 2em;
+    margin-right: 0.5em;
+}
+
+.transaction-text p{
+    color: var(--text-medium);
+    font-size: 0.9em;
+}
+
+.transaction-value{
+    margin-left: auto;
+}
