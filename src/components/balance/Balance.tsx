@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Balance.css'
 
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { formatCurrency } from '../../utils/currencyUtils';
 
 interface BalanceProps {
 	balance: number;
@@ -11,13 +12,8 @@ const Balance: React.FC<BalanceProps> = ({ balance }) => {
 
 	const [viewBalance, setViewBalance] = useState(true);
 
-	const formattedBalance = new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
-		minimumFractionDigits: 2,
-		maximumFractionDigits: 2,
-	}).format(balance);
-
+	const formattedBalance = formatCurrency(balance, "USD");
+	
 	const [integerPart, decimalPart] = formattedBalance.split('.');
 
 	function toggleViewBalance() {

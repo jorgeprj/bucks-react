@@ -7,6 +7,13 @@ import { useState } from "react"
 const Home = () => {
 	const [balance, setBalance] = useState(1056.32);
 
+	const transaction = 
+	{
+		"amount": 32.17,
+		"date": "2023-11-11",
+		"name": "Uber Black",
+	}
+
 	return (
 		<div className="home">
 			<div className='home-content'>
@@ -16,7 +23,7 @@ const Home = () => {
 				</div>
 				<Balance balance={balance}/>
 				<div className='transactions-cards'>
-					<TransactionCard value={32.17}/>
+					<TransactionCard transaction={transaction}/>
 				</div>
 			</div>
 		</div>
