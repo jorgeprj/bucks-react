@@ -20,8 +20,8 @@ const TransactionCard: React.FC<TransactionCardProps> = ({ transaction }) => {
 				<h4>{transaction.name}</h4>
 				<p>{formatDate(transaction.date)}</p>
 			</div>
-			<div className='transaction-value'>
-				<h4>{formattedValue}</h4>
+			<div className={`transaction-value ${transaction.type}`}>
+				<h4>{transaction.type === 'Sent' ? `-${formattedValue}` : `+${formattedValue}`}</h4>
 			</div>
 		</div>
 	)

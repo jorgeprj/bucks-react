@@ -1,0 +1,45 @@
+.check-transaction{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.check-transaction svg{
+    font-size: 1.5em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    color: #fff;
+}
+
+.check-transaction .success svg{
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.check-transaction .denied svg{
+    background-color: #ff2851;
+    border-radius: 50%;
+}
+
+
+.check-transaction h2{
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.check-transaction p{
+    color: var(--text-low);
+    max-width: 250px;
+}
+
+.check-transaction h3{
+    font-size: 2em;
+    margin-top: 0.2em;
+}
+
+.check-transaction h4 span{
+    font-size: 1.2em;
+    margin-right: 0.2em;
+}
