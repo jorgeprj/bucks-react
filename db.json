@@ -2,19 +2,8 @@
   "account": {
     "name": "Jorge Pires",
     "startBalance": 1200,
-    "balance": 3350,
+    "balance": 2205.1,
     "transactions": [
-      {
-        "id": "ef4b1b42-e276-4864-8ed3-bed846db0bd8",
-        "amount": "30",
-        "date": "2023-09-06",
-        "name": "Uber",
-        "category": {
-          "id": 8,
-          "name": "Uber"
-        },
-        "type": "Sent"
-      },
       {
         "id": "2417e2bd-5a4d-41a2-9006-20c42b52663c",
         "amount": "20",
@@ -23,6 +12,17 @@
         "category": {
           "id": 12,
           "name": "Spotify"
+        },
+        "type": "Sent"
+      },
+      {
+        "id": "ef4b1b42-e276-4864-8ed3-bed846db0bd8",
+        "amount": "30",
+        "date": "2023-09-06",
+        "name": "Uber",
+        "category": {
+          "id": 8,
+          "name": "Uber"
         },
         "type": "Sent"
       },
@@ -36,6 +36,28 @@
           "name": "Wage"
         },
         "type": "Received"
+      },
+      {
+        "id": "27fe31bf-5e71-43b3-b2bd-c83b1e31c0b6",
+        "amount": "1100",
+        "date": "2023-03-08",
+        "name": "Iphone 14 Pro Max",
+        "category": {
+          "id": 6,
+          "name": "Apple"
+        },
+        "type": "Sent"
+      },
+      {
+        "id": "db864840-955c-415d-8da6-899468b212a2",
+        "amount": "44.9",
+        "date": "2023-10-01",
+        "name": "Counter Strike 2",
+        "category": {
+          "id": 11,
+          "name": "Games"
+        },
+        "type": "Sent"
       }
     ]
   },

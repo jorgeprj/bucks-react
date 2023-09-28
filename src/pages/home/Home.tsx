@@ -61,10 +61,13 @@ const Home = () => {
 					<button onClick={() => setAddTransaction(true)}>+</button>
 				</div>
 				<Balance balance={account.balance} />
+				<h3>Last</h3>
 				<div className='transactions-cards'>
-					{account.transactions.map(transaction => (
-						<TransactionCard transaction={transaction} key={transaction.name} />
-					))}
+					{account.transactions
+						.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+						.map(transaction => (
+							<TransactionCard transaction={transaction} key={transaction.name} />
+						))}
 				</div>
 			</div>
 		</div>
