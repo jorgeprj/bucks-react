@@ -1,9 +1,9 @@
 import { Transaction } from '../../interfaces/Transaction';
+import { getCategoryIcon } from '../../utils/categoryIconUtils';
 import { formatCurrency } from '../../utils/currencyUtils';
 import { formatDate } from '../../utils/dateUtils';
 import './TransactionCard.css'
 
-import { FaUber } from 'react-icons/fa6'
 
 interface TransactionCardProps {
 	transaction: Transaction
@@ -13,9 +13,11 @@ const TransactionCard: React.FC<TransactionCardProps> = ({ transaction }) => {
 
 	const formattedValue = formatCurrency(parseFloat(transaction.amount), "USD");
 
+	const Icon = getCategoryIcon(transaction.category.name);
+
 	return (
 		<div className='transaction-card'>
-			<FaUber />
+			<Icon />
 			<div className='transaction-text'>
 				<h4>{transaction.name}</h4>
 				<p>{formatDate(transaction.date)}</p>

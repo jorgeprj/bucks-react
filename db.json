@@ -2,38 +2,102 @@
   "account": {
     "name": "Jorge Pires",
     "startBalance": 1200,
-    "balance": 950,
+    "balance": 1124.34,
     "transactions": [
       {
-        "amount": 100,
-        "date": "2023-11-11",
-        "name": "Uber",
+        "amount": "30",
+        "date": "2023-09-01",
+        "name": "Spotify",
+        "category": {
+          "id": 12,
+          "name": "Spotify"
+        },
         "type": "Sent"
+      },
+      {
+        "amount": "30",
+        "date": "2023-09-15",
+        "name": "Uber",
+        "category": {
+          "id": 8,
+          "name": "Uber"
+        },
+        "type": "Sent"
+      },
+      {
+        "amount": "34.34",
+        "date": "2023-09-19",
+        "name": "Party Ticket",
+        "category": {
+          "id": 13,
+          "name": "Personal"
+        },
+        "type": "Received"
       },
       {
         "amount": "100",
-        "date": "2023-09-19",
-        "name": "Party",
-        "type": "Received"
-      },
-      {
-        "amount": "200",
-        "date": "2023-09-07",
-        "name": "Party",
-        "type": "Received"
-      },
-      {
-        "amount": "400",
-        "date": "2023-09-30",
-        "name": "Vasco da Gama Jersey",
-        "type": "Sent"
-      },
-      {
-        "amount": "50",
-        "date": "2023-09-22",
-        "name": "Supermarket",
+        "date": "2023-09-27",
+        "name": "Payday 3",
+        "category": {
+          "id": 11,
+          "name": "Games"
+        },
         "type": "Sent"
       }
     ]
-  }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Supermarket"
+    },
+    {
+      "id": 2,
+      "name": "Transport"
+    },
+    {
+      "id": 3,
+      "name": "Shopping"
+    },
+    {
+      "id": 4,
+      "name": "Hospital"
+    },
+    {
+      "id": 5,
+      "name": "Youtube"
+    },
+    {
+      "id": 6,
+      "name": "Apple"
+    },
+    {
+      "id": 7,
+      "name": "Trip"
+    },
+    {
+      "id": 8,
+      "name": "Uber"
+    },
+    {
+      "id": 9,
+      "name": "Electronics"
+    },
+    {
+      "id": 10,
+      "name": "Food"
+    },
+    {
+      "id": 11,
+      "name": "Games"
+    },
+    {
+      "id": 12,
+      "name": "Spotify"
+    },
+    {
+      "id": 13,
+      "name": "Personal"
+    }
+  ]
 }

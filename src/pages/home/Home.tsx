@@ -7,7 +7,6 @@ import './Home.css'
 
 import { useEffect, useState } from "react"
 
-
 const Home = () => {
 	const [account, setAccount] = useState<Account>({
 		name: '',
@@ -17,6 +16,10 @@ const Home = () => {
 			amount: '0',
 			date: '',
 			name: '',
+			category: {
+				id: 0,
+				name: ''
+			},
 			type: 'Received',
 		}]
 	})
@@ -59,7 +62,7 @@ const Home = () => {
 				<Balance balance={account.balance} />
 				<div className='transactions-cards'>
 					{account.transactions.map(transaction => (
-						<TransactionCard transaction={transaction} />
+						<TransactionCard transaction={transaction} key={transaction.name} />
 					))}
 				</div>
 			</div>

@@ -1,11 +1,12 @@
 import { Account } from '../../interfaces/Account';
 import { Transaction } from '../../interfaces/Transaction';
+import { Category } from '../../interfaces/Category';
 import './AddTransaction.css'
 
-import { ChangeEvent, FC, FormEvent, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import CheckTransaction from './check-transaction/CheckTransaction';
 
-import { FaChevronLeft } from 'react-icons/fa6';
+import { FaChevronLeft} from 'react-icons/fa6';
 
 interface TransactionProps {
     onClose: () => void;
@@ -19,11 +20,31 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
         amount: '',
         date: '',
         name: '',
+        category: {
+            id: 0,
+            name: ""
+        },
         type: 'Sent',
     });
 
+    const [categories, setCategories] = useState<Category[]>([]);
+
     const [checkTransaction, setCheckTransaction] = useState(false);
     const [transactionStatus, setTransactionStatus] = useState(true);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/categories', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            setCategories(data);
+        })
+        .catch((err) => console.error(err));
+    }, []);
 
     function createTransaction(account: Account) {
 
@@ -75,6 +96,16 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
         setTransaction({ ...transaction, [e.target.name]: e.target.value });
     };
 
+    function handleCategory(e: ChangeEvent<HTMLSelectElement>) {
+        setTransaction({
+            ...transaction,
+            category: {
+                id: parseFloat(e.target.value),
+                name: e.target.options[e.target.selectedIndex].text,
+            }, 
+        });
+    };
+
 
     return (
         <div className="add-transaction">
@@ -94,6 +125,7 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
                                     value={transaction.amount}
                                     onChange={handleChange}
                                     className="input-field"
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -104,6 +136,7 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
                                     value={transaction.date}
                                     onChange={handleChange}
                                     className="input-field"
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -114,7 +147,21 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
                                     value={transaction.name}
                                     onChange={handleChange}
                                     className="input-field"
+                                    required
                                 />
+                            </div>
+                            <div className="form-group">
+                                <label>Type</label>
+                                <select
+                                    name="category"
+                                    value={transaction.category.id}
+                                    onChange={handleCategory}
+                                    className="input-field"
+                                    required
+                                >
+                                    {categories.map((category) => 
+                                    <option value={category.id} key={category.id}>{category.name}</option>)}
+                                </select>
                             </div>
                             <div className="form-group">
                                 <label>Type</label>
@@ -123,6 +170,7 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
                                     value={transaction.type}
                                     onChange={handleChange}
                                     className="input-field"
+                                    required
                                 >
                                     <option value="Received">Received</option>
                                     <option value="Sent">Sent</option>
