@@ -32,14 +32,11 @@
 .check-transaction p{
     color: var(--text-low);
     max-width: 250px;
+    font-size: 0.9em;
+    font-weight: 500;
 }
 
 .check-transaction h3{
-    font-size: 2em;
-    margin-top: 0.2em;
-}
-
-.check-transaction h4 span{
-    font-size: 1.2em;
-    margin-right: 0.2em;
+    font-size: 1.5em;
+    margin-top: 0.5em;
 }
