@@ -27,9 +27,13 @@
 }
 
 .navbar .account svg{
-    margin-right: 1em;
+    margin-right: 0.5em;
 }
 
 .navbar .account:hover{
+    color: var(--primary-color);
+}
+
+.navbar .account.active{
     color: var(--primary-color);
 }
