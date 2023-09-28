@@ -1,9 +1,13 @@
-import { Account } from '../../interfaces/Account';
-import { Transaction } from '../../interfaces/Transaction';
-import { Category } from '../../interfaces/Category';
 import './AddTransaction.css'
 
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
+
+import { Account } from '../../interfaces/Account';
+import { Transaction } from '../../interfaces/Transaction';
+import { Category } from '../../interfaces/Category';
+
+import { v4 as uuidv4 } from 'uuid';
+
 import CheckTransaction from './check-transaction/CheckTransaction';
 
 import { FaChevronLeft} from 'react-icons/fa6';
@@ -17,6 +21,7 @@ interface TransactionProps {
 
 const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTransaction }) => {
     const [transaction, setTransaction] = useState<Transaction>({
+        id: '',
         amount: '',
         date: '',
         name: '',
@@ -50,6 +55,7 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
 
         setTransactionStatus(true);
         const lastTransaction: Transaction = account.transactions[account.transactions.length - 1];
+        lastTransaction.id = uuidv4();
 
         if (lastTransaction.type === "Sent") {
             if (parseFloat(lastTransaction.amount) > account.balance) {

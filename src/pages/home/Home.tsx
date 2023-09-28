@@ -13,6 +13,7 @@ const Home = () => {
 		startBalance: 0,
 		balance: 0,
 		transactions: [{
+			id: '',
 			amount: '0',
 			date: '',
 			name: '',

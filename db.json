@@ -2,21 +2,12 @@
   "account": {
     "name": "Jorge Pires",
     "startBalance": 1200,
-    "balance": 1124.34,
+    "balance": 3350,
     "transactions": [
       {
+        "id": "ef4b1b42-e276-4864-8ed3-bed846db0bd8",
         "amount": "30",
-        "date": "2023-09-01",
-        "name": "Spotify",
-        "category": {
-          "id": 12,
-          "name": "Spotify"
-        },
-        "type": "Sent"
-      },
-      {
-        "amount": "30",
-        "date": "2023-09-15",
+        "date": "2023-09-06",
         "name": "Uber",
         "category": {
           "id": 8,
@@ -25,24 +16,26 @@
         "type": "Sent"
       },
       {
-        "amount": "34.34",
-        "date": "2023-09-19",
-        "name": "Party Ticket",
+        "id": "2417e2bd-5a4d-41a2-9006-20c42b52663c",
+        "amount": "20",
+        "date": "2023-09-30",
+        "name": "Spotify Premium",
         "category": {
-          "id": 13,
-          "name": "Personal"
-        },
-        "type": "Received"
-      },
-      {
-        "amount": "100",
-        "date": "2023-09-27",
-        "name": "Payday 3",
-        "category": {
-          "id": 11,
-          "name": "Games"
+          "id": 12,
+          "name": "Spotify"
         },
         "type": "Sent"
+      },
+      {
+        "id": "3f70d4e7-6d68-4da7-b209-58b7f4292e97",
+        "amount": "2200",
+        "date": "2023-09-01",
+        "name": "Github",
+        "category": {
+          "id": 14,
+          "name": "Wage"
+        },
+        "type": "Received"
       }
     ]
   },
@@ -98,6 +91,10 @@
     {
       "id": 13,
       "name": "Personal"
+    },
+    {
+      "id": 14,
+      "name": "Wage"
     }
   ]
 }
