@@ -1,62 +1,85 @@
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .popup-inner {
-    background: #fff;
-    padding: 2em;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .popup h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .popup label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .popup input,
-  .popup select {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+.add-transaction {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-  
-  .popup-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .cancel-button {
-    background-color: #ccc;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .add-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
+.add-transaction-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.add-transaction-header{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.add-transaction-header svg{
+  cursor: pointer;
+  margin-right: 0.5em;
+  font-size: 1.5em;
+}
+
+.add-transaction h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-transaction label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.add-transaction input,
+.add-transaction select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-button {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.add-button:hover{
+  box-shadow: none;
+  color: #fff;
+}

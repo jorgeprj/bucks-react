@@ -25,3 +25,11 @@
 .transaction-value{
     margin-left: auto;
 }
+
+.transaction-value.Received{
+    color: var(--primary-color);
+}
+
+.transaction-value.Sent{
+    color: var(--text-low);
+}
