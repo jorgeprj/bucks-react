@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 
-import { FaCartShopping, FaCarSide, FaShop, FaHospital, FaPlane, FaComputer, FaGamepad, FaBurger, FaApple, FaUber, FaYoutube, FaSpotify, FaUser, FaTag } from 'react-icons/fa6'
+import { FaCartShopping, FaCarSide, FaShop, FaHospital, FaPlane, FaComputer, FaGamepad, FaBurger, FaApple, FaUber, FaYoutube, FaSpotify, FaSuitcase, FaUser, FaTag } from 'react-icons/fa6'
 
 export const getCategoryIcon = (categoryName: string): IconType => {
 	let icon: IconType;
@@ -44,6 +44,9 @@ export const getCategoryIcon = (categoryName: string): IconType => {
 			break;
 		case 'Spotify':
 			icon = FaSpotify;
+			break;
+		case 'Wage':
+			icon = FaSuitcase;
 			break;
 		default:
 			icon = FaTag;
