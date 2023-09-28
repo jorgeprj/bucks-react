@@ -1,3 +1,39 @@
 {
-    "transactions":[]
+  "account": {
+    "name": "Jorge Pires",
+    "startBalance": 1200,
+    "balance": 950,
+    "transactions": [
+      {
+        "amount": 100,
+        "date": "2023-11-11",
+        "name": "Uber",
+        "type": "Sent"
+      },
+      {
+        "amount": "100",
+        "date": "2023-09-19",
+        "name": "Party",
+        "type": "Received"
+      },
+      {
+        "amount": "200",
+        "date": "2023-09-07",
+        "name": "Party",
+        "type": "Received"
+      },
+      {
+        "amount": "400",
+        "date": "2023-09-30",
+        "name": "Vasco da Gama Jersey",
+        "type": "Sent"
+      },
+      {
+        "amount": "50",
+        "date": "2023-09-22",
+        "name": "Supermarket",
+        "type": "Sent"
+      }
+    ]
+  }
 }

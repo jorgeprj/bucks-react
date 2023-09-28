@@ -1,29 +1,97 @@
+import AddTransaction from '../../components/add-transaction/AddTransaction';
 import Balance from '../../components/balance/Balance';
 import TransactionCard from '../../components/transaction-card/TransactionCard';
+import { Account } from '../../interfaces/Account';
+import { Transaction } from '../../interfaces/Transaction';
 import './Home.css'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
 
 const Home = () => {
-	const [balance, setBalance] = useState(1056.32);
+	const [account, setAccount] = useState<Account>({
+		name: '',
+		startBalance: 0,
+		balance: 0,
+		transactions: [{
+			amount: '0',
+			date: '',
+			name: '',
+			type: 'Received',
+		}]
+	})
 
-	const transaction = 
-	{
-		"amount": 32.17,
-		"date": "2023-11-11",
-		"name": "Uber Black",
+	const [addTransaction, setAddTransaction] = useState(false);
+
+
+	useEffect(() => {
+
+		fetch('http://localhost:5000/account', {
+			method: 'GET',
+			headers: { 
+				'content-type': 'application/json',
+			},
+		})
+		.then((resp) => resp.json())
+		.then((data) => {
+			setAccount(data);
+		})
+		.catch((err) => console.log(err));
+	}, [])
+
+
+	function closeAddTransaction(){
+		setAddTransaction(false);
+	}
+
+	function createTransaction(account: Account){
+
+		const lastTransaction: Transaction = account.transactions[account.transactions.length - 1];
+		
+		if(lastTransaction.type === "Sent"){
+			if(parseFloat(lastTransaction.amount) > account.balance){
+				console.log("Transaction amount is bigger than account balance");
+				account.transactions.pop()
+				return false;
+			}
+			account.balance -= parseFloat(lastTransaction.amount);
+		}else{
+			account.balance += parseFloat(lastTransaction.amount);
+		}
+
+		fetch(`http://localhost:5000/account`, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(account),
+		}).then(resp => resp.json())
+			.then((data) => {
+				closeAddTransaction();
+				console.log(data);
+			})
+			.catch((err) => console.log(err));
+
+
 	}
 
 	return (
 		<div className="home">
 			<div className='home-content'>
+				{addTransaction && (
+					<div>
+						<AddTransaction onClose={closeAddTransaction} handleSubmit={createTransaction} accountData={account}/>
+					</div>
+				)}
 				<div className='home-header'>
 					<h1>Transactions</h1>
-					<button>+</button>
+					<button onClick={() => setAddTransaction(true)}>+</button>
 				</div>
-				<Balance balance={balance}/>
+				<Balance balance={account.balance}/>
 				<div className='transactions-cards'>
-					<TransactionCard transaction={transaction}/>
+					{account.transactions.map(transaction => (
+						<TransactionCard transaction={transaction}/>
+					))}
 				</div>
 			</div>
 		</div>

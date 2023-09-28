@@ -1,3 +1,4 @@
+import { Transaction } from '../../interfaces/Transaction';
 import { formatCurrency } from '../../utils/currencyUtils';
 import { formatDate } from '../../utils/dateUtils';
 import './TransactionCard.css'
@@ -5,16 +6,12 @@ import './TransactionCard.css'
 import { FaUber } from 'react-icons/fa6'
 
 interface TransactionCardProps {
-	transaction: {
-		amount: number;
-		date: string;
-		name: string;
-	};
+	transaction: Transaction
 }
 
 const TransactionCard: React.FC<TransactionCardProps> = ({ transaction }) => {
 
-	const formattedValue = formatCurrency(transaction.amount, "USD");
+	const formattedValue = formatCurrency(parseFloat(transaction.amount), "USD");
 
 	return (
 		<div className='transaction-card'>

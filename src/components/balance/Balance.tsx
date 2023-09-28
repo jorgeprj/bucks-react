@@ -9,11 +9,9 @@ interface BalanceProps {
 }
 
 const Balance: React.FC<BalanceProps> = ({ balance }) => {
-
 	const [viewBalance, setViewBalance] = useState(true);
 
 	const formattedBalance = formatCurrency(balance, "USD");
-	
 	const [integerPart, decimalPart] = formattedBalance.split('.');
 
 	function toggleViewBalance() {
