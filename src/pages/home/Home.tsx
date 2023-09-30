@@ -2,6 +2,7 @@ import AddTransaction from '../../components/add-transaction/AddTransaction';
 import Balance from '../../components/balance/Balance';
 import TransactionCard from '../../components/transaction-card/TransactionCard';
 import { Account } from '../../interfaces/Account';
+import { Transaction } from '../../interfaces/Transaction';
 
 import './Home.css'
 
@@ -27,7 +28,6 @@ const Home = () => {
 
 	const [addTransaction, setAddTransaction] = useState(false);
 
-
 	useEffect(() => {
 
 		fetch('http://localhost:5000/account', {
@@ -41,11 +41,39 @@ const Home = () => {
 				setAccount(data);
 			})
 			.catch((err) => console.log(err));
-	}, [])
+	}, [account])
 
 
 	function closeAddTransaction() {
 		setAddTransaction(false);
+	}
+
+	function deleteTransaction(transactionId: string, transactionAmount: number, transactionType: string) {
+		const transactionsUpdated = account.transactions.filter(
+			(transaction) => transaction.id !== transactionId
+		)
+
+		const accountUpdated = account;
+
+		accountUpdated.transactions = transactionsUpdated
+
+		if (transactionType === "Sent") {
+			account.balance = account.balance + transactionAmount;
+		} else {
+			account.balance = account.balance - transactionAmount;
+		}
+
+		fetch(`http://localhost:5000/account`, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(accountUpdated),
+		}).then(resp => resp.json())
+			.then(() => {
+				setAccount(accountUpdated)
+			})
+			.catch((err) => console.log(err));
 	}
 
 	return (
@@ -66,7 +94,7 @@ const Home = () => {
 					{account.transactions
 						.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 						.map(transaction => (
-							<TransactionCard transaction={transaction} key={transaction.name} />
+							<TransactionCard transaction={transaction} deleteTransaction={deleteTransaction} key={transaction.name} />
 						))}
 				</div>
 			</div>

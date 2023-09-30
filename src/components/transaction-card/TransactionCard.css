@@ -1,4 +1,4 @@
-.transaction-card{
+.transaction-card {
     display: flex;
     align-items: center;
     padding: 1em;
@@ -6,30 +6,45 @@
     margin-top: 1em;
 }
 
-.transaction-card h4{
+.transaction-card h4 {
     font-size: 1em;
     font-weight: 600;
     margin: 0;
 }
 
-.transaction-card svg{
+.transaction-card svg {
     font-size: 2em;
     margin-right: 0.5em;
 }
 
-.transaction-text p{
+.transaction-text p {
     color: var(--text-medium);
     font-size: 0.9em;
 }
 
-.transaction-value{
+.transaction-value {
     margin-left: auto;
 }
 
-.transaction-value.Received{
+.transaction-value.Received {
     color: var(--primary-color);
 }
 
-.transaction-value.Sent{
+.transaction-value.Sent {
     color: var(--text-low);
+}
+
+.transaction-delete {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.5em;
+    margin-left: 2em;
+    color: #ff2851;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.transaction-delete:hover {
+    transform: scale(1.2);
 }
