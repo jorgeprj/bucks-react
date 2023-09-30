@@ -17,7 +17,7 @@
 }
 
 
-.navbar .account{
+.navbar .my-account{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -26,14 +26,14 @@
     transition: 0.2s;
 }
 
-.navbar .account svg{
+.navbar .my-account svg{
     margin-right: 0.5em;
 }
 
-.navbar .account:hover{
+.navbar .my-account:hover{
     color: var(--primary-color);
 }
 
-.navbar .account.active{
+.navbar .my-account.active{
     color: var(--primary-color);
 }
