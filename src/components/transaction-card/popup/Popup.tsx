@@ -1,11 +1,11 @@
 import { FC } from "react"
 
 import './Popup.css'
-import { Transaction } from "../../../interfaces/Transaction";
+import { ITransaction } from "../../../interfaces/Transaction";
 
 interface PopupProps {
 	setConfirmCard: (boolean: boolean) => void;
-    transaction: Transaction;
+    transaction: ITransaction;
 	deleteTransaction: (transactionId: string, transactionAmount: number, transactionType: string) => void;
 }
 

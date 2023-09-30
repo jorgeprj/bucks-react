@@ -1,8 +1,9 @@
-import { Transaction } from "./Transaction";
+import { ITransaction } from "./Transaction";
 
-export interface Account {
+export interface IAccount {
     name: string;
+    number: string;
     startBalance: number;
     balance: number;
-    transactions: Transaction[];
+    transactions: ITransaction[];
 }

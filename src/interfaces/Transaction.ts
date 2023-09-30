@@ -1,10 +1,10 @@
-import { Category } from "./Category";
+import { ICategory } from "./Category";
 
-export interface Transaction {
+export interface ITransaction {
     id: string;
     amount: string;
     date: string;
     name: string;
-    category: Category;
+    category: ICategory;
     type: 'Received' | 'Sent';
 }

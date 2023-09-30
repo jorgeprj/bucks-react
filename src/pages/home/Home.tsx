@@ -1,32 +1,23 @@
 import AddTransaction from '../../components/add-transaction/AddTransaction';
 import Balance from '../../components/balance/Balance';
+import Message from '../../components/message/Message';
 import TransactionCard from '../../components/transaction-card/TransactionCard';
-import { Account } from '../../interfaces/Account';
-import { Transaction } from '../../interfaces/Transaction';
+import { IAccount } from '../../interfaces/Account';
 
 import './Home.css'
 
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 
-const Home = () => {
-	const [account, setAccount] = useState<Account>({
-		name: '',
-		startBalance: 0,
-		balance: 0,
-		transactions: [{
-			id: '',
-			amount: '0',
-			date: '',
-			name: '',
-			category: {
-				id: 0,
-				name: ''
-			},
-			type: 'Received',
-		}]
-	})
+interface HomeProps {
+	iAccount: IAccount,
+};
 
+const Home: FC<HomeProps> = ({ iAccount }) => {
+	const [account, setAccount] = useState(iAccount);
 	const [addTransaction, setAddTransaction] = useState(false);
+
+	const [message, setMessage] = useState<string>();
+	const [type, setType] = useState<string>();
 
 	useEffect(() => {
 
@@ -49,6 +40,8 @@ const Home = () => {
 	}
 
 	function deleteTransaction(transactionId: string, transactionAmount: number, transactionType: string) {
+		setMessage(undefined);
+		
 		const transactionsUpdated = account.transactions.filter(
 			(transaction) => transaction.id !== transactionId
 		)
@@ -72,33 +65,43 @@ const Home = () => {
 		}).then(resp => resp.json())
 			.then(() => {
 				setAccount(accountUpdated)
+				setMessage("Transaction deleted successfully!");
+				setType("success");
 			})
 			.catch((err) => console.log(err));
 	}
 
 	return (
-		<div className="home">
-			<div className='home-content'>
-				{addTransaction && (
-					<div>
-						<AddTransaction onClose={closeAddTransaction} accountData={account} closeAddTransaction={closeAddTransaction} />
+		<div>
+			{message && <Message type={type} text={message} />}
+			<div className="home">
+				<div className='home-content'>
+					{addTransaction && (
+						<div>
+							<AddTransaction 
+								onClose={closeAddTransaction} 
+								accountData={account} 
+								closeAddTransaction={closeAddTransaction}
+							/>
+						</div>
+					)}
+					<div className='home-header'>
+						<h1>Transactions</h1>
+						<button onClick={() => setAddTransaction(true)}>+</button>
 					</div>
-				)}
-				<div className='home-header'>
-					<h1>Transactions</h1>
-					<button onClick={() => setAddTransaction(true)}>+</button>
-				</div>
-				<Balance balance={account.balance} />
-				<h3>Last</h3>
-				<div className='transactions-cards'>
-					{account.transactions
-						.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-						.map(transaction => (
-							<TransactionCard transaction={transaction} deleteTransaction={deleteTransaction} key={transaction.name} />
-						))}
+					<Balance balance={account.balance} />
+					<h3>Last</h3>
+					<div className='transactions-cards'>
+						{account.transactions
+							.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+							.map(transaction => (
+								<TransactionCard transaction={transaction} deleteTransaction={deleteTransaction} key={transaction.name} />
+							))}
+					</div>
 				</div>
 			</div>
 		</div>
+
 	)
 }
 

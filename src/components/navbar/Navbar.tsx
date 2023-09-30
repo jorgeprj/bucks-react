@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
 		<div className="navbar">
 			<span className="logo">BUCKS</span>
 			<Menu />
-			<span className={`account ${location.pathname === '/myaccount' ? 'active' : ''}`}>
+			<span className={`my-account ${location.pathname === '/myaccount' ? 'active' : ''}`}>
 				<Link to={"/myaccount"}>
 					<FaUser /> My Account
 				</Link>

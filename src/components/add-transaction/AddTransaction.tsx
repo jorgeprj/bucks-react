@@ -2,9 +2,9 @@ import './AddTransaction.css'
 
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 
-import { Account } from '../../interfaces/Account';
-import { Transaction } from '../../interfaces/Transaction';
-import { Category } from '../../interfaces/Category';
+import { IAccount } from '../../interfaces/Account';
+import { ITransaction } from '../../interfaces/Transaction';
+import { ICategory } from '../../interfaces/Category';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,13 +14,13 @@ import { FaChevronLeft} from 'react-icons/fa6';
 
 interface TransactionProps {
     onClose: () => void;
-    accountData: Account;
+    accountData: IAccount;
     closeAddTransaction: () => void;
 }
 
 
 const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTransaction }) => {
-    const [transaction, setTransaction] = useState<Transaction>({
+    const [transaction, setTransaction] = useState<ITransaction>({
         id: '',
         amount: '',
         date: '',
@@ -32,7 +32,7 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
         type: 'Sent',
     });
 
-    const [categories, setCategories] = useState<Category[]>([]);
+    const [categories, setCategories] = useState<ICategory[]>([]);
 
     const [checkTransaction, setCheckTransaction] = useState(false);
     const [transactionStatus, setTransactionStatus] = useState(true);
@@ -51,10 +51,10 @@ const AddTransaction: FC<TransactionProps> = ({ onClose, accountData, closeAddTr
         .catch((err) => console.error(err));
     }, []);
 
-    function createTransaction(account: Account) {
+    function createTransaction(account: IAccount) {
 
         setTransactionStatus(true);
-        const lastTransaction: Transaction = account.transactions[account.transactions.length - 1];
+        const lastTransaction: ITransaction = account.transactions[account.transactions.length - 1];
         lastTransaction.id = uuidv4();
 
         if (lastTransaction.type === "Sent") {

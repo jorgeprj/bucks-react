@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Transaction } from '../../interfaces/Transaction';
+import { ITransaction } from '../../interfaces/Transaction';
 import { getCategoryIcon } from '../../utils/categoryIconUtils';
 import { formatCurrency } from '../../utils/currencyUtils';
 import { formatDate } from '../../utils/dateUtils';
@@ -9,7 +9,7 @@ import { FaX } from 'react-icons/fa6'
 import Popup from './popup/Popup';
 
 interface TransactionCardProps {
-	transaction: Transaction,
+	transaction: ITransaction,
 	deleteTransaction: (transactionId: string, transactionAmount: number, transactionType: string) => void;
 }
 
