@@ -1,27 +1,96 @@
-# React + TypeScript + Vite
+# Bucks - ReactTS Financial Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Bucks](/public/screenshot.png)
 
-Currently, two official plugins are available:
+Welcome to the **Bucks** repository, a ReactTS application designed to help users manage their finances effectively. Bucks provides a range of features including transaction management, automatic balance calculation, and customizable transaction categories.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+Bucks leverages various React and TypeScript concepts to deliver a seamless financial management experience:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Connecting to an **API** that simulates a database.
+- Effective use of **React Hooks** for state management.
+- Responsive and visually appealing design using **CSS**.
+- User-friendly event handling with **onClick** and **onChange**.
+- Efficient data flow through component properties (**props**).
+- Smooth navigation facilitated by **React Router**.
+- Intuitive icons for transaction categories from the **React Icons** library.
 
-- Configure the top-level `parserOptions` property like this:
+## Additional Features
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+In addition to the core functionalities, Bucks offers advanced capabilities:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Transaction Management** - Add and remove transactions, keeping the balance up to date.
+- **MyAccount Page** - Set the initial account name and balance for personalized tracking.
+- **Categorized Transactions** - Assign different icons to each transaction category for easy identification.
+
+## Prerequisites
+
+To run Bucks on your local machine, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) - Version 14 or higher.
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) for package management.
+
+## Installation
+
+1. Clone this repository to your machine:
+
+   ```bash
+   git clone https://github.com/jorgeprj/taskee-react.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd taskee
+   ```
+
+3. Install project dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+## How to Use
+
+To simulate the JSON Server and run the project, follow these steps:
+
+1. Start the JSON Server to simulate the API:
+
+   ```bash
+   npm run backend
+   # or
+   yarn backend
+   ```
+
+   The server will be available at `http://localhost:5000`.
+
+2. Start the React application:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+The application will be available at `http://localhost:5173` by default.
+
+## Contribution
+
+If you'd like to contribute to the Bucks project, follow these steps:
+
+1. Fork the repository.
+2. Create your own development branch: `git checkout -b feature/feature-name`.
+3. Make your changes and commit them: `git commit -m 'Add a new feature'`.
+4. Push your branch: `git push origin feature/feature-name`.
+5. Submit a Pull Request with your changes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Feel free to use and modify it as needed.
+
+## Contact
+
+For questions or suggestions, please contact [@jorgeprj](https://github.com/jorgeprj).
